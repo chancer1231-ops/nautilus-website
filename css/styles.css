@@ -149,23 +149,11 @@ ul { list-style: none; }
   align-items: center;
   justify-content: space-between;
 }
-.nav__logo { line-height: 1; }
-.nav__logo-name {
-  font-family: var(--font-display);
-  font-size: 1.45rem;
-  font-weight: 500;
-  color: var(--clr-white);
-  letter-spacing: 0.08em;
+.nav__logo { line-height: 1; display: flex; align-items: center; }
+.nav__logo-img {
+  height: 54px;
+  width: auto;
   display: block;
-}
-.nav__logo-sub {
-  font-family: var(--font-body);
-  font-size: 0.58rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--clr-accent);
-  display: block;
-  margin-top: 2px;
 }
 .nav__links {
   display: flex;
