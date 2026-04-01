@@ -151,7 +151,7 @@ ul { list-style: none; }
 }
 .nav__logo { line-height: 1; display: flex; align-items: center; }
 .nav__logo-img {
-  height: 54px;
+  height: 76px;
   width: auto;
   display: block;
 }
