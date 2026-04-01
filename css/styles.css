@@ -28,7 +28,7 @@
 
   /* Layout */
   --container-max:  1240px;
-  --nav-height:     110px;
+  --nav-height:     130px;
   --section-gap:    110px;
   --radius:         4px;
 
@@ -151,7 +151,7 @@ ul { list-style: none; }
 }
 .nav__logo { line-height: 1; display: flex; align-items: center; }
 .nav__logo-img {
-  height: 96px;
+  height: 116px;
   width: auto;
   display: block;
 }
