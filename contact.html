@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Book a consultation or contact Nautilus Aesthetics. Complimentary consultations available for all new clients.">
-  <title>Book & Contact | Nautilus Aesthetics</title>
+  <title>Book &amp; Contact | Nautilus Aesthetics</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
         <img src="images/logo.svg" alt="Nautilus Aesthetics" class="nav__logo-img">
       </a>
       <ul class="nav__links">
-        <li><a href="services.html">Services</a></li>
+        <li><a href="services.html">Treatments</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -29,14 +29,14 @@
     </div>
   </nav>
   <div class="nav__mobile">
-    <a href="services.html">Services</a>
+    <a href="services.html">Treatments</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
     <a href="contact.html" class="btn btn-primary">Book Now</a>
   </div>
 
   <!-- ===================== PAGE HERO ===================== -->
-  <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1920&q=80');">
+  <section class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1758486561455-ebd0d3ba7423?auto=format&fit=crop&w=1920&q=80');">
     <div class="container">
       <div class="page-hero__content">
         <span class="section-tag">Let's Talk</span>
@@ -73,14 +73,14 @@
             Have a question about a treatment? Not sure which service is right for you? Fill out the form and we'll get back to you within one business day. All new client consultations are complimentary.
           </p>
 
+          <!-- UPDATE: Replace every value below with your real contact details before launch -->
           <div class="contact-info__item">
             <div class="contact-info__icon">
               <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
             <div>
               <div class="contact-info__label">Location</div>
-              <!-- UPDATE: Replace with your actual address -->
-              <div class="contact-info__value">Your City, State<br>Address coming soon</div>
+              <div class="contact-info__value">Nevada<br>Full address coming soon</div>
             </div>
           </div>
 
@@ -90,7 +90,6 @@
             </div>
             <div>
               <div class="contact-info__label">Phone</div>
-              <!-- UPDATE: Replace with your actual phone number -->
               <div class="contact-info__value">(000) 000-0000</div>
             </div>
           </div>
@@ -112,9 +111,8 @@
             <div>
               <div class="contact-info__label">Hours</div>
               <div class="contact-info__value">
-                Monday – Friday: 9am – 6pm<br>
-                Saturday: 9am – 4pm<br>
-                Sunday: Closed
+                By appointment<br>
+                Days and hours coming soon
               </div>
             </div>
           </div>
@@ -124,6 +122,9 @@
         <div class="fade-up delay-2">
           <div class="form-card">
             <h3 class="form-card__title">Send Us a Message</h3>
+            <!-- ⚠ NOT WIRED UP: this form does not deliver anywhere. js/main.js only shows a
+                 "Message Sent ✓" confirmation and clears the fields. Connect it to a real form
+                 handler (Formspree, Netlify Forms, your booking platform) before launch. -->
             <form class="contact-form" novalidate>
               <div class="form-row">
                 <div class="form-group">
@@ -149,10 +150,9 @@
                 <label class="form-label" for="service">Treatment of Interest</label>
                 <select class="form-select" id="service" name="service">
                   <option value="" disabled selected>Select a treatment...</option>
-                  <option value="laser">Laser Hair Removal</option>
-                  <option value="hydrafacial">HydraFacial</option>
-                  <option value="ipl">Photo Facial / IPL</option>
-                  <option value="botox">Botox &amp; Fillers</option>
+                  <option value="laser">Laser Hair Reduction</option>
+                  <option value="medispa">MediSpa Facial</option>
+                  <option value="jett">Jett Plasma</option>
                   <option value="skincare">Medical Skincare</option>
                   <option value="consultation">General Consultation</option>
                   <option value="unsure">Not Sure Yet</option>
@@ -175,23 +175,23 @@
   <!-- ===================== REASSURANCE STRIP ===================== -->
   <div style="background:var(--clr-white); padding:64px 0; border-top:1px solid var(--clr-ivory-dark);">
     <div class="container">
-      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:40px; text-align:center;">
+      <div class="tri-col">
         <div class="fade-up delay-1">
-          <div style="width:52px; height:52px; background:rgba(30,102,85,0.08); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--clr-primary); margin:0 auto 16px;">
+          <div style="width:52px; height:52px; background:rgba(var(--clr-primary-rgb),0.08); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--clr-primary); margin:0 auto 16px;">
             <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           </div>
           <h4 style="font-family:var(--font-display); font-size:1.2rem; margin-bottom:8px;">Free Consultation</h4>
           <p style="font-size:0.88rem; color:var(--clr-text-muted); line-height:1.65;">All new client consultations are complimentary — no obligation to book.</p>
         </div>
         <div class="fade-up delay-2">
-          <div style="width:52px; height:52px; background:rgba(30,102,85,0.08); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--clr-primary); margin:0 auto 16px;">
+          <div style="width:52px; height:52px; background:rgba(var(--clr-primary-rgb),0.08); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--clr-primary); margin:0 auto 16px;">
             <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h4 style="font-family:var(--font-display); font-size:1.2rem; margin-bottom:8px;">Medically Supervised</h4>
-          <p style="font-size:0.88rem; color:var(--clr-text-muted); line-height:1.65;">Every treatment plan is overseen by a licensed medical professional.</p>
+          <p style="font-size:0.88rem; color:var(--clr-text-muted); line-height:1.65;">All treatment protocols are established in collaboration with a licensed medical director, in accordance with Nevada advanced aesthetics regulations.</p>
         </div>
         <div class="fade-up delay-3">
-          <div style="width:52px; height:52px; background:rgba(30,102,85,0.08); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--clr-primary); margin:0 auto 16px;">
+          <div style="width:52px; height:52px; background:rgba(var(--clr-primary-rgb),0.08); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--clr-primary); margin:0 auto 16px;">
             <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
           </div>
           <h4 style="font-family:var(--font-display); font-size:1.2rem; margin-bottom:8px;">No Pressure, Ever</h4>
@@ -208,33 +208,34 @@
         <div>
           <span class="footer__brand-name">Nautilus</span>
           <span class="footer__brand-sub">Aesthetics</span>
-          <p class="footer__brand-desc">Premium medical aesthetics where clinical precision meets artistic excellence. Revealed. Refined. Radiant.</p>
+          <p class="footer__brand-desc">Premium advanced aesthetics where clinical precision meets artistic excellence. Evolve Beautifully.</p>
         </div>
         <div>
           <div class="footer__col-label">Treatments</div>
           <ul class="footer__links">
-            <li><a href="services.html#laser">Laser Hair Removal</a></li>
-            <li><a href="services.html#hydrafacial">HydraFacial</a></li>
-            <li><a href="services.html#ipl">Photo Facial / IPL</a></li>
-            <li><a href="services.html#injectables">Botox &amp; Fillers</a></li>
+            <li><a href="services.html#laser">Laser Hair Reduction</a></li>
+            <li><a href="services.html#medispa">MediSpa Facial</a></li>
+            <li><a href="services.html#jett">Jett Plasma</a></li>
             <li><a href="services.html#skincare">Medical Skincare</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer__col-label">Company</div>
+          <div class="footer__col-label">Technology</div>
           <ul class="footer__links">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="contact.html">Book Now</a></li>
+            <li><a href="medidiode.html">MediDiode</a></li>
+            <li><a href="medispa.html">MediSpa</a></li>
+            <li><a href="jett-plasma.html">Jett Plasma Medical II</a></li>
+            <li><a href="about.html#method">The Evolve Method</a></li>
           </ul>
         </div>
         <div>
           <div class="footer__col-label">Contact</div>
           <dl class="footer__contact">
-            <dt>Location</dt><dd>Your City, State</dd>
+            <!-- UPDATE: Replace with your actual location, phone, email and hours -->
+            <dt>Location</dt><dd>Nevada</dd>
             <dt>Phone</dt><dd>(000) 000-0000</dd>
             <dt>Email</dt><dd>hello@nautilusaesthetics.com</dd>
-            <dt>Hours</dt><dd>Mon–Sat: 9am – 6pm</dd>
+            <dt>Hours</dt><dd>By appointment</dd>
           </dl>
         </div>
       </div>
