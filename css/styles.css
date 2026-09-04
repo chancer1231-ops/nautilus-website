@@ -1395,3 +1395,14 @@ ul { list-style: none; }
 
 @media (max-width: 1024px) { .principles { grid-template-columns: repeat(2, 1fr); gap: 2px 36px; } }
 @media (max-width: 768px)  { .principles { grid-template-columns: 1fr; margin-top: 48px; } }
+
+/* Modality / mechanism descriptor under a treatment or device title */
+.modality-line {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--clr-primary);
+  margin: -8px 0 18px;
+}
+.modality-line--light { color: var(--clr-accent); margin: -6px 0 20px; }
