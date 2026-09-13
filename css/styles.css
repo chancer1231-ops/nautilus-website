@@ -11,8 +11,8 @@
 /* ---- Brand Variables ---------------------------------------- */
 :root {
   /* Colors — Nautilus brand palette */
-  --clr-primary:       #1D5C52;   /* Deep teal green */
-  --clr-primary-dark:  #143E37;   /* Dark teal */
+  --clr-primary:       #0B4F4A;   /* Deep teal */
+  --clr-primary-dark:  #06312E;   /* Deep teal, dark */
   --clr-accent:        #C4A24A;   /* Brushed gold */
   --clr-accent-light:  #d4b76a;
   --clr-ivory:         #FAF6EE;   /* Warm ivory */
@@ -23,8 +23,8 @@
   --clr-black:         #0d0d0a;
 
   /* RGB channels — for rgba() tints. Keep in sync with the hex values above. */
-  --clr-primary-rgb:      29, 92, 82;
-  --clr-primary-dark-rgb: 20, 62, 55;
+  --clr-primary-rgb:      11, 79, 74;
+  --clr-primary-dark-rgb: 6, 49, 46;
 
   /* Typography */
   --font-display: 'Cormorant Garamond', Georgia, serif;
