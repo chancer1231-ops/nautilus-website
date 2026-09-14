@@ -1434,6 +1434,36 @@ ul { list-style: none; }
 }
 .modality-line--light { color: var(--clr-accent); margin: -6px 0 20px; }
 
+/* ---- Meet the Founder (about.html) --------------------------- */
+.founder {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 88px;
+  align-items: center;
+}
+.founder__photo { order: 2; }
+.founder__photo img {
+  width: 100%;
+  height: 620px;
+  object-fit: cover;
+  object-position: 50% 22%;
+  border-radius: var(--radius);
+}
+/* scoped: .about-body p would otherwise override colour, size and margin */
+.about-body .founder__role {
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clr-accent-deep);
+  margin: 4px 0 26px;
+}
+@media (max-width: 768px) {
+  .founder { grid-template-columns: 1fr; gap: 40px; }
+  .founder__photo { order: 0; }
+  .founder__photo img { height: 460px; }
+}
+
 /* ============================================================
    NAUTILUS SHELL — Philosophy section
    Golden-rectangle construction + logarithmic spiral + septa.
