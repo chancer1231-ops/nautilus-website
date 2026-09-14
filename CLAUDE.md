@@ -39,6 +39,7 @@ says the same thing, and it has held up.
 | `--clr-primary` | `#0B4F4A` | Deep teal — headers, CTAs, logo |
 | `--clr-primary-dark` | `#06312E` | Backgrounds, panels |
 | `--clr-accent` | `#C4A24A` | Brush gold. Flat only — a brushed/metallic finish was explored and rejected |
+| `--clr-accent-deep` | `#7B6428` | Same hue as brush gold, deeper. **Small gold text on light grounds only** (labels, tags, step numbers). Brush gold on ivory is 2.26:1 and fails; this is 4.6–5.7:1. Lines, icons, buttons and gold on dark stay `--clr-accent` |
 | `--clr-ivory` | `#FAF6EE` | Page background. Never pure white |
 | `--clr-text` | `#1A1A17` | Body copy. Never pure black |
 
