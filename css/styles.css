@@ -25,6 +25,8 @@
   /* RGB channels — for rgba() tints. Keep in sync with the hex values above. */
   --clr-primary-rgb:      11, 79, 74;
   --clr-primary-dark-rgb: 6, 49, 46;
+  --clr-ivory-rgb:        250, 246, 238;
+  --clr-accent-rgb:       196, 162, 74;
 
   /* Typography */
   --font-display: 'Cormorant Garamond', Georgia, serif;
@@ -100,8 +102,19 @@ ul { list-style: none; }
   letter-spacing: 0.13em;
   text-transform: uppercase;
   border-radius: var(--radius);
-  transition: var(--transition-fast);
+  transition: background-color 0.35s var(--ease), color 0.35s var(--ease),
+              border-color 0.35s var(--ease), box-shadow 0.5s var(--ease),
+              transform 0.5s var(--ease);
   white-space: nowrap;
+}
+/* :hover:active out-ranks .btn-primary:hover, so the press settles the lift */
+.btn:hover:active,
+.btn:active { transform: translateY(0); transition-duration: 0.12s; }
+.btn:focus-visible,
+.service-card:focus-visible,
+.device-card:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--clr-ivory), 0 0 0 4px var(--clr-primary);
 }
 .btn-primary {
   background: var(--clr-accent);
@@ -110,7 +123,7 @@ ul { list-style: none; }
 .btn-primary:hover {
   background: var(--clr-accent-light);
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(196,162,74,0.35);
+  box-shadow: 0 12px 30px rgba(var(--clr-accent-rgb), 0.3);
 }
 .btn-outline-light {
   border: 1px solid rgba(255,255,255,0.55);
@@ -227,6 +240,7 @@ ul { list-style: none; }
 /* ---- Hero ------------------------------------------------------ */
 .hero {
   min-height: 100vh;
+  background: var(--clr-primary-dark);
   display: flex;
   align-items: center;
   position: relative;
@@ -239,10 +253,13 @@ ul { list-style: none; }
   background-image: url('https://images.unsplash.com/photo-1612196808827-9ff25cb6137a?auto=format&fit=crop&w=1920&q=85');
   background-size: cover;
   background-position: center 45%;
-  transform: scale(1.06);
-  transition: transform 10s ease;
 }
-.hero__bg.loaded { transform: scale(1); }
+.js .hero__bg {
+  opacity: 0;
+  transform: scale(1.035);
+  transition: opacity 1.4s var(--ease), transform 2.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.js .hero__bg.loaded { opacity: 1; transform: scale(1); }
 .hero__overlay {
   position: absolute;
   inset: 0;
@@ -437,15 +454,20 @@ ul { list-style: none; }
   overflow: hidden;
   border-radius: var(--radius);
   cursor: pointer;
+  transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px rgba(var(--clr-primary-dark-rgb), 0.18);
 }
 .service-card__img-wrap { height: 340px; overflow: hidden; }
 .service-card__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.65s var(--ease);
+  transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
-.service-card:hover .service-card__img { transform: scale(1.06); }
+.service-card:hover .service-card__img { transform: scale(1.045); }
 .service-card__overlay {
   position: absolute;
   inset: 0;
@@ -924,12 +946,12 @@ ul { list-style: none; }
 .form-privacy { margin-top: 14px; font-size: 0.78rem; color: var(--clr-text-muted); text-align: center; }
 
 /* ---- Scroll Animations ---------------------------------------- */
-.fade-up {
+.js .fade-up {
   opacity: 0;
-  transform: translateY(32px);
+  transform: translateY(24px);
   transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
 }
-.fade-up.visible { opacity: 1; transform: translateY(0); }
+.js .fade-up.visible { opacity: 1; transform: translateY(0); }
 .delay-1 { transition-delay: 0.1s; }
 .delay-2 { transition-delay: 0.2s; }
 .delay-3 { transition-delay: 0.3s; }
@@ -1406,3 +1428,122 @@ ul { list-style: none; }
   margin: -8px 0 18px;
 }
 .modality-line--light { color: var(--clr-accent); margin: -6px 0 20px; }
+
+/* ============================================================
+   NAUTILUS SHELL — Philosophy section
+   Golden-rectangle construction + logarithmic spiral + septa.
+   Drawn fully by default; js/main.js animates it, and leaves it
+   static when the visitor prefers reduced motion.
+   ============================================================ */
+.intro__shell {
+  background: radial-gradient(circle at 33% 69%, var(--clr-primary) 0%, var(--clr-primary-dark) 72%);
+  overflow: hidden;
+}
+.shell { display: block; width: 100%; height: 100%; }
+.shell line,
+.shell path {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}
+.shell__grid line    { stroke: rgba(var(--clr-ivory-rgb), 0.07); stroke-width: 1; }
+.shell__squares path { stroke: rgba(var(--clr-ivory-rgb), 0.22); stroke-width: 1; }
+.shell__frame        { stroke: rgba(var(--clr-accent-rgb), 0.45); stroke-width: 1; }
+.shell__septa path   { stroke: rgba(var(--clr-accent-rgb), 0.55); stroke-width: 1; }
+.shell__spiral       { stroke: var(--clr-accent); stroke-width: 1.6; }
+.shell__eye          { fill: var(--clr-accent); }
+
+/* ============================================================
+   MOTION
+   ============================================================ */
+
+/* Group reveals: children rise in sequence. js/main.js adds .stagger
+   and --i. An animation (not a transition) so hover timing is untouched. */
+@keyframes nautilus-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes nautilus-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes nautilus-draw-x { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+.js .stagger:not(.visible) > * { opacity: 0; }
+.js .stagger.visible > * {
+  animation: nautilus-rise 0.8s var(--ease) backwards;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+
+/* Hero entrance: the copy settles in order while the photo fades up behind it */
+.js .hero__content > * { opacity: 0; }
+.js .hero.is-ready .hero__content > * {
+  opacity: 1;
+  animation: nautilus-rise 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 110ms + 80ms);
+}
+.hero__title em { display: inline-block; }
+.js .hero.is-ready .hero__title em {
+  animation: nautilus-rise 1s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+  animation-delay: 360ms;
+}
+.hero__eyebrow::before { transform-origin: left center; }
+.js .hero.is-ready .hero__eyebrow::before {
+  animation: nautilus-draw-x 0.8s var(--ease) backwards;
+  animation-delay: 140ms;
+}
+.js .hero__scroll { opacity: 0; }
+.js .hero.is-ready .hero__scroll {
+  opacity: 1;
+  animation: nautilus-fade 0.9s var(--ease) backwards;
+  animation-delay: 0.9s;
+}
+
+/* Inner-page heroes get the same settle, lighter */
+.js .page-hero__content > * { opacity: 0; }
+.js .page-hero.is-ready .page-hero__content > * {
+  opacity: 1;
+  animation: nautilus-rise 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 120ms + 120ms);
+}
+
+/* Gold hairline that draws under section titles as they reveal.
+   Sits inside the title's bottom margin, so nothing shifts. */
+.section-title { position: relative; }
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -9px;
+  width: 44px;
+  height: 1px;
+  background: var(--clr-accent);
+  transform-origin: left center;
+}
+.section-header--center .section-title::after {
+  left: 50%;
+  margin-left: -22px;
+  transform-origin: center;
+}
+.js .section-title::after {
+  transform: scaleX(0);
+  transition: transform 0.9s var(--ease) 0.35s;
+}
+.js .visible .section-title::after,
+.js .section-title.visible::after { transform: scaleX(1); }
+
+/* ---- Reduced motion ------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* no waiting on staggered delays, and no zoom on the hero photo */
+  *, *::before, *::after {
+    animation-delay: 0s !important;
+    transition-delay: 0s !important;
+  }
+  .js .hero__bg { transform: none; }
+  .service-card:hover,
+  .btn-primary:hover { transform: none; }
+  .service-card:hover .service-card__img { transform: none; }
+}

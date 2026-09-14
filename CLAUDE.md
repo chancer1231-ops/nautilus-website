@@ -10,9 +10,10 @@ Plain HTML, one stylesheet, one script.
 ```
 index.html  about.html  services.html  contact.html
 medispa.html  medidiode.html  jett-plasma.html
-css/styles.css   (~1400 lines — all styling)
-js/main.js       (~74 lines — nav, mobile drawer, IntersectionObserver fade-ups, form)
+css/styles.css   (~1550 lines — all styling)
+js/main.js       (~190 lines — nav, drawer, hero entrance, staggered reveals, shell animation, form)
 images/brand/  images/devices/  images/logo.svg
+tools/generate-shell.py   (optional — regenerates the Philosophy shell SVG; not part of any build)
 ```
 
 Open `index.html` in a browser to work locally. There is nothing to install or compile.
@@ -84,6 +85,21 @@ Confirm with Chance whether it should stay visible before launch.
 Facial tiers: The Reveal $175 · The Refine $265 · The Evolve $350.
 Membership: The Nautilus Circle, $149/mo.
 Full pricing: `~/Desktop/nautilus-assets/03_Pricing_and_Offers/Nautilus_Service_Menu_LAUNCH.md`
+
+## Motion
+
+- Every page's `<head>` adds a `js` class to `<html>` before the stylesheet loads. Anything
+  that starts hidden for a reveal is scoped under `.js`, so with scripts off (or broken)
+  the page renders fully visible. Keep new reveal styles behind `.js` too.
+- Reveals: `.fade-up` for single blocks; groups listed in `STAGGER_GROUPS` in `js/main.js`
+  get `.stagger` and reveal their children in sequence. Staggers use a one-shot animation,
+  not transition delays, so hover timing on cards stays immediate.
+- The Philosophy shell (`index.html`, `.intro__shell`) is inline SVG animated with the Web
+  Animations API. Timings are the `data-t`/`data-d` attributes; it plays only while on
+  screen and the tab is visible. To change the drawing, run `tools/generate-shell.py` and
+  paste the output over the `<svg class="shell">` block — do not hand-edit the geometry.
+- `prefers-reduced-motion: reduce` is honoured in CSS (bottom of the stylesheet) and in JS:
+  the shell renders as a static finished drawing and smooth scrolling is off.
 
 ## Current work
 
