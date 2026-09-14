@@ -15,6 +15,7 @@
   --clr-primary-dark:  #06312E;   /* Deep teal, dark */
   --clr-accent:        #C4A24A;   /* Brushed gold */
   --clr-accent-light:  #d4b76a;
+  --clr-accent-deep:   #7B6428;   /* Gold for small text on light grounds (brand gold fails there) */
   --clr-ivory:         #FAF6EE;   /* Warm ivory */
   --clr-ivory-dark:    #ede8dc;
   --clr-text:          #1A1A17;   /* Warm black */
@@ -70,9 +71,13 @@ ul { list-style: none; }
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--clr-accent);
+  color: var(--clr-accent-deep);
   margin-bottom: 14px;
 }
+/* On dark or photographic grounds the brighter golds pass and read better */
+.section--dark .section-tag,
+.device-hero .section-tag { color: var(--clr-accent); }
+.page-hero .section-tag { color: var(--clr-accent-light); }
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3.25rem);
@@ -263,7 +268,7 @@ ul { list-style: none; }
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(var(--clr-primary-dark-rgb),0.88) 0%, rgba(var(--clr-primary-dark-rgb),0.6) 50%, rgba(var(--clr-primary-rgb),0.4) 100%);
+  background: linear-gradient(135deg, rgba(var(--clr-primary-dark-rgb),0.9) 0%, rgba(var(--clr-primary-dark-rgb),0.72) 50%, rgba(var(--clr-primary-dark-rgb),0.55) 100%);
 }
 .hero__content {
   position: relative;
@@ -277,7 +282,7 @@ ul { list-style: none; }
   font-size: 0.72rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--clr-accent);
+  color: var(--clr-accent-light);
   margin-bottom: 28px;
 }
 .hero__eyebrow::before {
@@ -322,7 +327,7 @@ ul { list-style: none; }
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  color: rgba(255,255,255,0.45);
+  color: rgba(var(--clr-ivory-rgb), 0.9);
   font-size: 0.67rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -471,11 +476,11 @@ ul { list-style: none; }
 .service-card__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(var(--clr-primary-dark-rgb),0.92) 0%, rgba(var(--clr-primary-dark-rgb),0.2) 55%, transparent 100%);
+  background: linear-gradient(to top, rgba(var(--clr-primary-dark-rgb),0.94) 0%, rgba(var(--clr-primary-dark-rgb),0.72) 42%, rgba(var(--clr-primary-dark-rgb),0.18) 72%, transparent 100%);
   transition: var(--transition-med);
 }
 .service-card:hover .service-card__overlay {
-  background: linear-gradient(to top, rgba(var(--clr-primary-dark-rgb),0.97) 0%, rgba(var(--clr-primary-dark-rgb),0.55) 60%, rgba(var(--clr-primary-dark-rgb),0.1) 100%);
+  background: linear-gradient(to top, rgba(var(--clr-primary-dark-rgb),0.97) 0%, rgba(var(--clr-primary-dark-rgb),0.8) 45%, rgba(var(--clr-primary-dark-rgb),0.25) 80%, rgba(var(--clr-primary-dark-rgb),0.1) 100%);
 }
 .service-card__body {
   position: absolute;
@@ -487,7 +492,7 @@ ul { list-style: none; }
   font-size: 0.68rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--clr-accent);
+  color: var(--clr-accent-light);
   margin-bottom: 8px;
 }
 .service-card__name {
@@ -515,7 +520,7 @@ ul { list-style: none; }
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--clr-accent);
+  color: var(--clr-accent-light);
   margin-top: 14px;
   max-height: 0;
   overflow: hidden;
@@ -539,7 +544,7 @@ ul { list-style: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(var(--clr-primary-dark-rgb),0.55) 0%, rgba(var(--clr-primary-dark-rgb),0.88) 100%);
+  background: linear-gradient(to bottom, rgba(var(--clr-primary-dark-rgb),0.66) 0%, rgba(var(--clr-primary-dark-rgb),0.9) 100%);
 }
 .page-hero__content { position: relative; z-index: 1; }
 .page-hero__title {
@@ -747,7 +752,7 @@ ul { list-style: none; }
   font-size: 1.05rem;
   margin-bottom: 52px;
 }
-.cta-banner__note { margin-top: 24px; font-size: 0.78rem; color: rgba(255,255,255,0.38); }
+.cta-banner__note { margin-top: 24px; font-size: 0.78rem; color: rgba(var(--clr-ivory-rgb), 0.72); }
 
 /* ---- Footer --------------------------------------------------- */
 .footer {
@@ -808,7 +813,7 @@ ul { list-style: none; }
 }
 .footer__copy { font-size: 0.8rem; }
 .footer__legal { display: flex; gap: 28px; }
-.footer__legal a { font-size: 0.8rem; color: rgba(250,246,238,0.35); transition: color var(--transition-fast); }
+.footer__legal a { font-size: 0.8rem; color: rgba(var(--clr-ivory-rgb), 0.62); transition: color var(--transition-fast); }
 .footer__legal a:hover { color: var(--clr-accent); }
 
 /* ---- About Page ----------------------------------------------- */
@@ -1050,7 +1055,7 @@ ul { list-style: none; }
   font-size: 0.66rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--clr-accent);
+  color: var(--clr-accent-deep);
   margin-bottom: 8px;
 }
 .device-card__name {
@@ -1124,7 +1129,7 @@ ul { list-style: none; }
   margin: 0 auto 18px;
   border-radius: 50%;
   border: 1px solid var(--clr-accent);
-  color: var(--clr-accent);
+  color: var(--clr-accent-deep);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1214,7 +1219,7 @@ ul { list-style: none; }
 }
 .modality__name span {
   font-size: 0.7rem;
-  color: var(--clr-accent);
+  color: var(--clr-accent-deep);
   letter-spacing: 0.1em;
 }
 .modality__desc {
@@ -1292,7 +1297,7 @@ ul { list-style: none; }
   font-size: 0.66rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--clr-accent);
+  color: var(--clr-accent-deep);
   margin-bottom: 8px;
 }
 .spec__value {
@@ -1314,7 +1319,7 @@ ul { list-style: none; }
   font-size: 0.68rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--clr-accent);
+  color: var(--clr-accent-deep);
   margin-bottom: 12px;
 }
 .expect p {
@@ -1428,6 +1433,36 @@ ul { list-style: none; }
   margin: -8px 0 18px;
 }
 .modality-line--light { color: var(--clr-accent); margin: -6px 0 20px; }
+
+/* ---- Meet the Founder (about.html) --------------------------- */
+.founder {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 88px;
+  align-items: center;
+}
+.founder__photo { order: 2; }
+.founder__photo img {
+  width: 100%;
+  height: 620px;
+  object-fit: cover;
+  object-position: 50% 22%;
+  border-radius: var(--radius);
+}
+/* scoped: .about-body p would otherwise override colour, size and margin */
+.about-body .founder__role {
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clr-accent-deep);
+  margin: 4px 0 26px;
+}
+@media (max-width: 768px) {
+  .founder { grid-template-columns: 1fr; gap: 40px; }
+  .founder__photo { order: 0; }
+  .founder__photo img { height: 460px; }
+}
 
 /* ============================================================
    NAUTILUS SHELL — Philosophy section
